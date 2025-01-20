@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<title>Magic Shop. Order Completed</title>
+
+<head>
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+  <meta content="utf-8" http-equiv="encoding" />
+  <link rel="stylesheet" href="styles.css" />
+  <script type="text/javascript" src="utils.js"></script>
+  
+ <!-- Un-comment the block to enable Google Tag Manager Data Layer
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    </script>
+  -->
+  
+   <!-- Un-comment the block to enable Google Tag Manager  and replace the GTM id with your own
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-W8VSX4T');</script>
+  -->
+  
+</head>
+
+<body>
+  
+<!-- Un-comment the block to enable Google Tag Manager and replace the GTM id with your own
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W8VSX4T"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+-->
+  
+  <header class="header">
+    <div class="fake-counter"></div>
+    <a class="delink" href="./">
+      <h1>Magic shop</h1>
+    </a>
+    <div class="counter"></div>
+  </header>
+  <article class="thanks-content">
+    <div class="thanks-first">Thank you for shopping with us!</div>
+    <div class="thanks-second">You are welcome any time.</div>
+    <div class="thanks-back">
+      <button type="button" onclick="backToShopping()">
+        Back to Shopping
+      </button>
+      <button type="button" onclick="exit()">
+        Exit
+      </button>
+    </div>
+  </article>
+  <script>
+    (async () => {
+      const user = getUser();
+      const cart = getCart();
+      if (user && user.email) {
+         // Trigger the Login event to set the People person context for the current user
+         // window.dataLayer.push({'user_id': user.email, 'event': 'login'});
+      }
+
+      // Trigger the Checkout event passing the total cart sum in a GTM Variable
+      // window.dataLayer.push({'total': cart.totalPrice, 'event': 'checkout'});
+     
+      console.log('Checkout Completed');
+      
+      removeCart();
+    })();
+
+    async function exit() {
+      // Trigger the Logout event passing the user id (email) in a GTM variable
+      // window.dataLayer.push({'user_id': '','event': 'logout'});
+      
+      console.log('User Logged Out');
+      removeUser();
+      window.location = './';
+    }
+
+    function backToShopping() {
+      window.location = './';
+    }
+  </script>
+</body>
+
+</html>
